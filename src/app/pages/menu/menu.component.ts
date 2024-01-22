@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OrderDetailsService } from 'src/app/services/order-details.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-
+  constructor(private service:OrderDetailsService) { }
+  foodData:any;
+  ngOnInit(): void {
+    this.foodData = this.service.foodDetails;
+  }
 }
